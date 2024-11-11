@@ -1,0 +1,63 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>N:\MicroChipStudio\Practica_4\Practica_4\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16Adef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>N:\MicroChipStudio\Practica_4\Practica_4\Debug\Practica_4.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica_4.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica_4.map</FILE>
+  <FILE>Practica_4.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>45</LINE></RESET>
+  <EXT_INT0><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>192</LINE></EXT_INT0>
+  <EXT_INT1><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>194</LINE></EXT_INT1>
+  <TIM2_COMP><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>196</LINE></TIM2_COMP>
+  <TIM2_OVF><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>198</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>200</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>202</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>204</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>206</LINE></TIM1_OVF>
+  <TIM0_OVF><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>208</LINE></TIM0_OVF>
+  <SPI_STC><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>210</LINE></SPI_STC>
+  <USART_RXC><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>212</LINE></USART_RXC>
+  <USART_UDRE><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>214</LINE></USART_UDRE>
+  <USART_TXC><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>216</LINE></USART_TXC>
+  <ADC_COMP><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>218</LINE></ADC_COMP>
+  <EE_RDY><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>220</LINE></EE_RDY>
+  <ANA_COMP><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>222</LINE></ANA_COMP>
+  <TWSI><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>224</LINE></TWSI>
+  <EXT_INT2><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>226</LINE></EXT_INT2>
+  <TIM0_COMP><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>228</LINE></TIM0_COMP>
+  <SPM_RDY><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>230</LINE></SPM_RDY>
+  <Check_buttons><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>76</LINE></Check_buttons>
+  <Btn1_Reset><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>112</LINE></Btn1_Reset>
+  <Btn1_Add><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>89</LINE></Btn1_Add>
+  <Btn2_Reset><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>121</LINE></Btn2_Reset>
+  <Btn2_Add><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>98</LINE></Btn2_Add>
+  <Retardo><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>163</LINE></Retardo>
+  <while_Btn1_Add><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>134</LINE></while_Btn1_Add>
+  <while_Btn2_Add><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>139</LINE></while_Btn2_Add>
+  <LShift><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>149</LINE></LShift>
+  <Mini_Reset><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>157</LINE></Mini_Reset>
+  <while_Btn1_Reset><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>129</LINE></while_Btn1_Reset>
+  <while_Btn2_Reset><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>144</LINE></while_Btn2_Reset>
+  <WGLOOP0><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>170</LINE></WGLOOP0>
+  <WGLOOP1><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>171</LINE></WGLOOP1>
+  <WGLOOP2><FILE>N:\MicroChipStudio\Practica_4\Practica_4\main.asm</FILE><LINE>178</LINE></WGLOOP2>
+ </LABELS>
+</ASSEMBLER_INFO>

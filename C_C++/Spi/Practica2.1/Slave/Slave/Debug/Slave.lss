@@ -1,0 +1,163 @@
+
+Slave.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000bc  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000110  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000110  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000140  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  0000017c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000005db  00000000  00000000  0000019c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000055b  00000000  00000000  00000777  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000234  00000000  00000000  00000cd2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00000f08  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002e5  00000000  00000000  00000f2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000013  00000000  00000000  00001211  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  00001224  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include <util/delay.h>			//Para poder hacer delays
+
+int main(){
+	
+	//Puerto ADC
+	DDRA=0; //Todas entradas
+  6c:	1a ba       	out	0x1a, r1	; 26
+	
+	//Puerto miso/mosi
+	DDRB=0x40;
+  6e:	80 e4       	ldi	r24, 0x40	; 64
+  70:	87 bb       	out	0x17, r24	; 23
+	PORTB=0xBF;
+  72:	8f eb       	ldi	r24, 0xBF	; 191
+  74:	88 bb       	out	0x18, r24	; 24
+	
+	SPSR=0b10000001; //SPI2X=1
+  76:	81 e8       	ldi	r24, 0x81	; 129
+  78:	8e b9       	out	0x0e, r24	; 14
+	SPCR=0b01100100; //Frecuecnia de 1/2
+  7a:	84 e6       	ldi	r24, 0x64	; 100
+  7c:	8d b9       	out	0x0d, r24	; 13
+	
+	ADMUX=0b01100000;
+  7e:	80 e6       	ldi	r24, 0x60	; 96
+  80:	87 b9       	out	0x07, r24	; 7
+	ADCSRA=0b10010011;
+  82:	83 e9       	ldi	r24, 0x93	; 147
+  84:	86 b9       	out	0x06, r24	; 6
+	unsigned char v;
+	char pot=0;
+	
+	while(1){
+		
+		while(PIND&0x10){
+  86:	84 99       	sbic	0x10, 4	; 16
+  88:	fe cf       	rjmp	.-4      	; 0x86 <main+0x1a>
+			//No hace nada en lo que lo llaman
+		}
+		
+		while((SPSR&0x80)==0){
+  8a:	77 9b       	sbis	0x0e, 7	; 14
+  8c:	fe cf       	rjmp	.-4      	; 0x8a <main+0x1e>
+			//Nada en lo que le acaban de decir qué hacer
+		}
+		
+		//Aquí ponemos çuál patita del ADC se va a leer
+		pot=SPDR;
+  8e:	9f b1       	in	r25, 0x0f	; 15
+		
+		ADMUX&=0xE0;
+  90:	87 b1       	in	r24, 0x07	; 7
+  92:	80 7e       	andi	r24, 0xE0	; 224
+  94:	87 b9       	out	0x07, r24	; 7
+		if(pot==2){
+  96:	92 30       	cpi	r25, 0x02	; 2
+  98:	19 f4       	brne	.+6      	; 0xa0 <main+0x34>
+			ADMUX|=7;
+  9a:	87 b1       	in	r24, 0x07	; 7
+  9c:	87 60       	ori	r24, 0x07	; 7
+  9e:	87 b9       	out	0x07, r24	; 7
+		}
+		
+		
+		ADCSRA|=(1<<ADSC);
+  a0:	86 b1       	in	r24, 0x06	; 6
+  a2:	80 64       	ori	r24, 0x40	; 64
+  a4:	86 b9       	out	0x06, r24	; 6
+		while(ADCSRA&0x40){
+  a6:	36 99       	sbic	0x06, 6	; 6
+  a8:	fe cf       	rjmp	.-4      	; 0xa6 <main+0x3a>
+			//Nadotota
+		}
+		v=ADCH;
+  aa:	85 b1       	in	r24, 0x05	; 5
+		SPDR=v;
+  ac:	8f b9       	out	0x0f, r24	; 15
+		
+		while(PIND&0x10){
+  ae:	84 99       	sbic	0x10, 4	; 16
+  b0:	fe cf       	rjmp	.-4      	; 0xae <main+0x42>
+			//Nada
+		}
+		
+		while((SPSR&0x80)==0){
+  b2:	77 9b       	sbis	0x0e, 7	; 14
+  b4:	fe cf       	rjmp	.-4      	; 0xb2 <main+0x46>
+  b6:	e7 cf       	rjmp	.-50     	; 0x86 <main+0x1a>
+
+000000b8 <_exit>:
+  b8:	f8 94       	cli
+
+000000ba <__stop_program>:
+  ba:	ff cf       	rjmp	.-2      	; 0xba <__stop_program>

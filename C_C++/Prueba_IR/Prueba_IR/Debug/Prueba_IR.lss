@@ -1,0 +1,245 @@
+
+Prueba_IR.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000016a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  0000016a  000001de  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000001e0  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000210  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000060  00000000  00000000  0000024c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000941  00000000  00000000  000002ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006e5  00000000  00000000  00000bed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000039c  00000000  00000000  000012d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000104  00000000  00000000  00001670  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003be  00000000  00000000  00001774  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000002f4  00000000  00000000  00001b32  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000050  00000000  00000000  00001e26  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 8c 00 	jmp	0x118	; 0x118 <__vector_11>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ea e6       	ldi	r30, 0x6A	; 106
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a2 36       	cpi	r26, 0x62	; 98
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 6b 00 	call	0xd6	; 0xd6 <main>
+  7a:	0c 94 b3 00 	jmp	0x166	; 0x166 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <Usart_init>:
+
+void Traba(volatile uint8_t *Lugar, uint8_t Bit){
+	_delay_ms(50);
+	while(cero_en_bit(&*Lugar, Bit)){}
+	_delay_ms(50);
+}
+  82:	90 bd       	out	0x20, r25	; 32
+  84:	89 b9       	out	0x09, r24	; 9
+  86:	88 e9       	ldi	r24, 0x98	; 152
+  88:	8a b9       	out	0x0a, r24	; 10
+  8a:	8e e8       	ldi	r24, 0x8E	; 142
+  8c:	80 bd       	out	0x20, r24	; 32
+  8e:	08 95       	ret
+
+00000090 <cero_en_bit>:
+  90:	fc 01       	movw	r30, r24
+  92:	80 81       	ld	r24, Z
+  94:	90 e0       	ldi	r25, 0x00	; 0
+  96:	02 c0       	rjmp	.+4      	; 0x9c <cero_en_bit+0xc>
+  98:	95 95       	asr	r25
+  9a:	87 95       	ror	r24
+  9c:	6a 95       	dec	r22
+  9e:	e2 f7       	brpl	.-8      	; 0x98 <cero_en_bit+0x8>
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	8f 27       	eor	r24, r31
+  a4:	81 70       	andi	r24, 0x01	; 1
+  a6:	08 95       	ret
+
+000000a8 <Usart_transmit>:
+  a8:	cf 93       	push	r28
+  aa:	c8 2f       	mov	r28, r24
+  ac:	65 e0       	ldi	r22, 0x05	; 5
+  ae:	8b e2       	ldi	r24, 0x2B	; 43
+  b0:	90 e0       	ldi	r25, 0x00	; 0
+  b2:	0e 94 48 00 	call	0x90	; 0x90 <cero_en_bit>
+  b6:	81 11       	cpse	r24, r1
+  b8:	f9 cf       	rjmp	.-14     	; 0xac <Usart_transmit+0x4>
+  ba:	cc b9       	out	0x0c, r28	; 12
+  bc:	cf 91       	pop	r28
+  be:	08 95       	ret
+
+000000c0 <uno_en_bit>:
+	return (!(*LUGAR&(1<<BIT)));
+}
+
+uint8_t uno_en_bit(volatile uint8_t *LUGAR, uint8_t BIT)
+{
+	return (*LUGAR&(1<<BIT));
+  c0:	fc 01       	movw	r30, r24
+  c2:	20 81       	ld	r18, Z
+  c4:	81 e0       	ldi	r24, 0x01	; 1
+  c6:	90 e0       	ldi	r25, 0x00	; 0
+  c8:	02 c0       	rjmp	.+4      	; 0xce <uno_en_bit+0xe>
+  ca:	88 0f       	add	r24, r24
+  cc:	99 1f       	adc	r25, r25
+  ce:	6a 95       	dec	r22
+  d0:	e2 f7       	brpl	.-8      	; 0xca <uno_en_bit+0xa>
+}
+  d2:	82 23       	and	r24, r18
+  d4:	08 95       	ret
+
+000000d6 <main>:
+	} 
+}
+
+int main(void)
+{
+	sei();
+  d6:	78 94       	sei
+	Usart_init(MYUBRR);
+  d8:	8c e0       	ldi	r24, 0x0C	; 12
+  da:	90 e0       	ldi	r25, 0x00	; 0
+  dc:	0e 94 41 00 	call	0x82	; 0x82 <Usart_init>
+	DDRB = 0xFE;
+  e0:	8e ef       	ldi	r24, 0xFE	; 254
+  e2:	87 bb       	out	0x17, r24	; 23
+	PORTB = 0x01;
+  e4:	81 e0       	ldi	r24, 0x01	; 1
+  e6:	88 bb       	out	0x18, r24	; 24
+	DDRD = 0b00000010;
+  e8:	82 e0       	ldi	r24, 0x02	; 2
+  ea:	81 bb       	out	0x11, r24	; 17
+	
+	
+	while (1)
+	{
+		if(cero_en_bit(&PINB,0)){
+  ec:	60 e0       	ldi	r22, 0x00	; 0
+  ee:	86 e3       	ldi	r24, 0x36	; 54
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	0e 94 48 00 	call	0x90	; 0x90 <cero_en_bit>
+  f6:	88 23       	and	r24, r24
+  f8:	21 f0       	breq	.+8      	; 0x102 <main+0x2c>
+			st ='1';
+  fa:	81 e3       	ldi	r24, 0x31	; 49
+  fc:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+ 100:	f5 cf       	rjmp	.-22     	; 0xec <main+0x16>
+		}
+		else if(uno_en_bit(&PINB,0)){
+ 102:	60 e0       	ldi	r22, 0x00	; 0
+ 104:	86 e3       	ldi	r24, 0x36	; 54
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	0e 94 60 00 	call	0xc0	; 0xc0 <uno_en_bit>
+ 10c:	88 23       	and	r24, r24
+ 10e:	71 f3       	breq	.-36     	; 0xec <main+0x16>
+			st = '0';
+ 110:	80 e3       	ldi	r24, 0x30	; 48
+ 112:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+ 116:	ea cf       	rjmp	.-44     	; 0xec <main+0x16>
+
+00000118 <__vector_11>:
+{
+	return (*LUGAR&(1<<BIT));
+}
+
+ISR (USART_RXC_vect) 
+{
+ 118:	1f 92       	push	r1
+ 11a:	0f 92       	push	r0
+ 11c:	0f b6       	in	r0, 0x3f	; 63
+ 11e:	0f 92       	push	r0
+ 120:	11 24       	eor	r1, r1
+ 122:	2f 93       	push	r18
+ 124:	3f 93       	push	r19
+ 126:	4f 93       	push	r20
+ 128:	5f 93       	push	r21
+ 12a:	6f 93       	push	r22
+ 12c:	7f 93       	push	r23
+ 12e:	8f 93       	push	r24
+ 130:	9f 93       	push	r25
+ 132:	af 93       	push	r26
+ 134:	bf 93       	push	r27
+ 136:	ef 93       	push	r30
+ 138:	ff 93       	push	r31
+	st = UDR;
+ 13a:	8c b1       	in	r24, 0x0c	; 12
+ 13c:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+	Usart_transmit(st);
+ 140:	0e 94 54 00 	call	0xa8	; 0xa8 <Usart_transmit>
+}
+ 144:	ff 91       	pop	r31
+ 146:	ef 91       	pop	r30
+ 148:	bf 91       	pop	r27
+ 14a:	af 91       	pop	r26
+ 14c:	9f 91       	pop	r25
+ 14e:	8f 91       	pop	r24
+ 150:	7f 91       	pop	r23
+ 152:	6f 91       	pop	r22
+ 154:	5f 91       	pop	r21
+ 156:	4f 91       	pop	r20
+ 158:	3f 91       	pop	r19
+ 15a:	2f 91       	pop	r18
+ 15c:	0f 90       	pop	r0
+ 15e:	0f be       	out	0x3f, r0	; 63
+ 160:	0f 90       	pop	r0
+ 162:	1f 90       	pop	r1
+ 164:	18 95       	reti
+
+00000166 <_exit>:
+ 166:	f8 94       	cli
+
+00000168 <__stop_program>:
+ 168:	ff cf       	rjmp	.-2      	; 0x168 <__stop_program>

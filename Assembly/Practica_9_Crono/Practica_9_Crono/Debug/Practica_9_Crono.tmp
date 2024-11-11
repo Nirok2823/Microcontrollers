@@ -1,0 +1,66 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16Adef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\Debug\Practica_9_Crono.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Practica_9_Crono.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Practica_9_Crono.map</FILE>
+  <FILE>Practica_9_Crono.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>45</LINE></RESET>
+  <EXT_INT0><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>160</LINE></EXT_INT0>
+  <EXT_INT1><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>162</LINE></EXT_INT1>
+  <TIM2_COMP><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>164</LINE></TIM2_COMP>
+  <TIM2_OVF><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>166</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>168</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>170</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>172</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>174</LINE></TIM1_OVF>
+  <TIM0_OVF><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>176</LINE></TIM0_OVF>
+  <SPI_STC><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>178</LINE></SPI_STC>
+  <USART_RXC><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>180</LINE></USART_RXC>
+  <USART_UDRE><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>182</LINE></USART_UDRE>
+  <USART_TXC><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>184</LINE></USART_TXC>
+  <ADC_COMP><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>186</LINE></ADC_COMP>
+  <EE_RDY><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>188</LINE></EE_RDY>
+  <ANA_COMP><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>190</LINE></ANA_COMP>
+  <TWSI><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>192</LINE></TWSI>
+  <EXT_INT2><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>194</LINE></EXT_INT2>
+  <TIM0_COMP><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>196</LINE></TIM0_COMP>
+  <SPM_RDY><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>208</LINE></SPM_RDY>
+  <Counter><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>95</LINE></Counter>
+  <Check><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>242</LINE></Check>
+  <Inicio><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>106</LINE></Inicio>
+  <Limpiar><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>116</LINE></Limpiar>
+  <Reseti><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>149</LINE></Reseti>
+  <Delay_Button><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>127</LINE></Delay_Button>
+  <while><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>110</LINE></while>
+  <while2><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>120</LINE></while2>
+  <WGLOOP0><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>134</LINE></WGLOOP0>
+  <WGLOOP1><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>135</LINE></WGLOOP1>
+  <WGLOOP2><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>136</LINE></WGLOOP2>
+  <Inc_Counter><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>211</LINE></Inc_Counter>
+  <True><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>204</LINE></True>
+  <Verify><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>218</LINE></Verify>
+  <Inc_Min><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>237</LINE></Inc_Min>
+  <Limit><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>232</LINE></Limit>
+  <Change><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>247</LINE></Change>
+  <Reset_L><FILE>N:\MicroChipStudio\Practica_9_Crono\Practica_9_Crono\main.asm</FILE><LINE>252</LINE></Reset_L>
+ </LABELS>
+</ASSEMBLER_INFO>

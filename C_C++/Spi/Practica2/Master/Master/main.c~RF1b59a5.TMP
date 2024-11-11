@@ -1,0 +1,120 @@
+/*
+ * Practica 2: Master
+ *
+ * Created: 15/04/24
+ * Author : Andre Nicasio Romo
+ */ 
+
+#define  F_CPU 1000000UL
+#include <avr/io.h>				//Librería general del Microcontrolador
+#include <stdint.h>				//Para poder declarar varialbes especiales
+#include <util/delay.h>			//Para poder hacer delays
+#include <avr/pgmspace.h>
+#include "lcd.h"
+#include <avr/interrupt.h>	 //Para poder manejar interrupciones
+
+//PROTOTIPADO DE FUNCIONES PARA PODER UTILIZARLAS DESDE CUALQUIER "LUGAR"
+//*************************************************************************
+uint8_t cero_en_bit(volatile uint8_t *LUGAR, uint8_t BIT);
+uint8_t uno_en_bit(volatile uint8_t *LUGAR, uint8_t BIT);
+//*************************************************************************
+
+void Traba(volatile uint8_t *Lugar, uint8_t Bit){
+	_delay_ms(50);
+	while(cero_en_bit(&*Lugar, Bit)){}
+	_delay_ms(50);
+}
+
+uint8_t TransRec(uint8_t pot, uint8_t esclavo){
+	PORTA = esclavo;
+	
+	SPDR = pot; // pide lo que hay en el A0
+	
+	while (cero_en_bit(&SPSR,7)) {}
+	uint8_t basura= SPDR;
+	
+	PORTA = 0xFF;
+	PORTA = esclavo;
+	SPDR = 10;
+	
+	while (cero_en_bit(&SPSR,7)) {}
+	return SPDR;
+}
+
+void printLcd(uint8_t potN, uint8_t slaveN, uint8_t esclavo, uint8_t pot){
+	uint8_t aux = 0;
+	lcd_clrscr();
+	lcd_gotoxy(0,0);
+	lcd_puts("Pot");
+	lcd_putc(potN+48);
+	lcd_putc(' ');
+	lcd_puts("Esclavo ");
+	lcd_putc(slaveN+48);
+	
+	aux = TransRec(pot, esclavo);
+	
+	lcd_gotoxy(0,1);
+	lcd_puts("Volts: ");
+	lcd_putc((aux/10)+48);
+	lcd_putc('.');
+	lcd_putc((aux%10)+48);	
+}
+
+int main(void)
+{
+	DDRB = 0b10110000;
+	DDRA = 0xFF;
+	DDRC = 0x00;
+	
+	PORTC = 0xFF;
+	PORTA = 0xFF;	
+	SPSR = 0b00000001;
+	SPCR = 0b01010000;
+	
+	lcd_init(LCD_DISP_ON); 
+	lcd_gotoxy(0,0);
+	lcd_puts("Spi");
+	lcd_gotoxy(0,1);
+	lcd_puts("Bidireccional");
+
+	
+    while (1) 
+    {
+		if (cero_en_bit(&PINC, 0))
+		{
+			printLcd(1,6,0b10000000,0);
+			
+			Traba(&PINC, 0);
+		}
+		
+		if(cero_en_bit(&PINC, 2)){
+			printLcd(2,6,0b10000000,7);
+			
+			Traba(&PINC, 2);
+		}
+			
+		if(cero_en_bit(&PINC, 4)){
+			printLcd(1,7,0b01000000,0);
+			
+			Traba(&PINC, 4);
+		}
+			
+		if(cero_en_bit(&PINC, 6)){
+			printLcd(2,7,0b01000000,0);
+			
+			Traba(&PINC, 4);
+		}
+			
+    }
+}
+
+
+uint8_t cero_en_bit(volatile uint8_t *LUGAR, uint8_t BIT)
+{
+	return (!(*LUGAR&(1<<BIT)));
+}
+
+uint8_t uno_en_bit(volatile uint8_t *LUGAR, uint8_t BIT)
+{
+	return (*LUGAR&(1<<BIT));
+}
